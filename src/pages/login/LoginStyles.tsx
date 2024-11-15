@@ -6,15 +6,36 @@ const styles = StyleSheet.create ({
 
     container: {
         flex: 1,
-        backgroundColor: '#ff914d'
+        backgroundColor: '#fff',
+       
 
     },
-    containerHeader: {
-        marginTop: '14%',
-        marginBottom: '8%',
-        paddingStart: '5%'
-    
+    containerLogo: {
+        flex: 0.7,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+
     },
+    logo: {
+        width: '100%', 
+        justifyContent: 'center', 
+        alignItems: 'center',
+        paddingTop: 30
+      },
+      logoImage: {
+        width: '70%',
+        height: '100%',  
+        resizeMode: 'contain', 
+      },
+      titleLogo: {
+        fontSize: 23,
+        position: 'relative',
+        marginTop: -40,
+        fontWeight: 'bold',
+        color: 'orange'
+
+      },
     message: {
         fontSize: 28,
         fontWeight: 'bold',
@@ -22,24 +43,25 @@ const styles = StyleSheet.create ({
     
     },
     containerForm: {
-        backgroundColor: '#FFF',
-        flex: 1,
-        borderTopLeftRadius: 25,
-        borderTopRightRadius: 25,
-        paddingStart: '5%',
-        paddingEnd: '5%'
+       flex: 1,
+       marginLeft: '5%',
+       marginRight: '5%',
+       marginTop: 30
+       
+      
 
     },
-    title: {
-        fontSize: 20,
-        marginTop: 28
-    
-    },
     input: {
-        borderBottomWidth: 1,
+        marginBottom: 15,
         height: 40,
-        marginBottom: 12,
-        fontSize: 16
+        fontSize: 16,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderColor: '#000', 
+        borderRadius: 4, 
+        borderWidth: 1,
+        padding: 10,
+       
 
     },
     button: {

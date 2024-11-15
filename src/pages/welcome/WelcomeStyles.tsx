@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
             alignItems: 'center',
         },
         containerLogo: {
-            flex: 2,
+            flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
             width: '100%',
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
             resizeMode: 'contain', 
           },
         containerForm: {
-            flex: 1,
+            flex: 2,
             backgroundColor: '#FFF',
             borderTopLeftRadius: 25,
             borderTopRightRadius: 25,

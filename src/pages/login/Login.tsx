@@ -14,20 +14,28 @@ const Login = () => {
 
     return(
         <View style={styles.container}>
-            <Animatable.View animation= 'slideInDown' delay={500} style={styles.containerHeader}>
-                <Text>Login</Text>
-            </Animatable.View>
+
+            <View style={styles.containerLogo}>
+                <Animatable.View 
+                    animation='flipInY'
+                    style={styles.logo}
+                    >
+                    <Image 
+                        style={styles.logoImage}
+                        source={require('../../assets/logo.png')}
+                    />
+                </Animatable.View>
+                <Text style={styles.titleLogo}>Login</Text>
+            </View>
 
             <Animatable.View animation= 'fadeInUp' style={styles.containerForm}>
-                <Text style={styles.title}>Email</Text>
                 <TextInput
-                   placeholder="Digite seu email..."
+                   placeholder="Email"
                    style={styles.input}
                 />
 
-                <Text style={styles.title}>Senha</Text>
                 <TextInput
-                   placeholder="Digite sua senha..."
+                   placeholder="Senha"
                    style={styles.input}
                 />
 

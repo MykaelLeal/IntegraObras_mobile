@@ -15,20 +15,33 @@ const Register = () => {
 
     return(
         <View style={styles.container}>
-            <Animatable.View animation= 'slideInDown' delay={500} style={styles.containerHeader}>
-                <Text>Cadastro</Text>
-            </Animatable.View>
+
+             <View style={styles.containerLogo}>
+                <Animatable.View 
+                    animation='flipInY'
+                    style={styles.logo}
+                    >
+                    <Image 
+                        style={styles.logoImage}
+                        source={require('../../assets/logo.png')}
+                    />
+                </Animatable.View>
+                <Text style={styles.titleLogo}>Cadastro</Text>
+             </View>
 
             <Animatable.View  delay={600} animation= 'fadeInUp' style={styles.containerForm}>
-                <Text style={styles.title}>Email</Text>
                 <TextInput
-                   placeholder="Digite seu email..."
+                   placeholder="Nome"
                    style={styles.input}
                 />
 
-                <Text style={styles.title}>Senha</Text>
                 <TextInput
-                   placeholder="Digite sua senha..."
+                   placeholder="Email"
+                   style={styles.input}
+                />
+
+                <TextInput
+                   placeholder="Senha"
                    style={styles.input}
                 />
 
@@ -40,7 +53,7 @@ const Register = () => {
                   style={styles.buttonRegister}
                   onPress={ () => navigation.navigate('Login')}
                   >
-                    <Text style={styles.registerText}>Não possui conta? Cadastra-se</Text>
+                    <Text style={styles.registerText}>Já possui conta? Login</Text>
                 </TouchableOpacity>
 
             </Animatable.View>

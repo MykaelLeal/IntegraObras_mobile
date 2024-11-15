@@ -6,7 +6,7 @@ import Routes from './src/routes/Routes';
 export default function App() {
   return (
     <NavigationContainer>
-      <StatusBar/>
+      <StatusBar />
       <Routes/>
     </NavigationContainer>
 

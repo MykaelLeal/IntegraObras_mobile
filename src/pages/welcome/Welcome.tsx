@@ -14,6 +14,7 @@ const Welcome = () => {
 
     return (
         <View style={styles.container}>
+            
             <View style={styles.containerLogo}>
                 <Animatable.View 
                    animation='flipInY'

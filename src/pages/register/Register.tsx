@@ -26,7 +26,7 @@ const Register = () => {
                         source={require('../../assets/logo.png')}
                     />
                 </Animatable.View>
-                <Text style={styles.titleLogo}>Cadastro</Text>
+                  <Text style={styles.titleLogo}>Cadastro</Text>
              </View>
 
             <Animatable.View  delay={600} animation= 'fadeInUp' style={styles.containerForm}>

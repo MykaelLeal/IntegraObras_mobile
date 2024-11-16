@@ -25,9 +25,9 @@ const Login = () => {
                         source={require('../../assets/logo.png')}
                     />
                 </Animatable.View>
-                <Text style={styles.titleLogo}>Login</Text>
+                  <Text style={styles.titleLogo}>Login</Text>
             </View>
-
+            
             <Animatable.View animation= 'fadeInUp' style={styles.containerForm}>
                 <TextInput
                    placeholder="Email"
@@ -38,7 +38,7 @@ const Login = () => {
                    placeholder="Senha"
                    style={styles.input}
                 />
-
+                
                 <TouchableOpacity style={styles.button}>
                     <Text style={styles.buttonText}>Entrar</Text>
                 </TouchableOpacity>

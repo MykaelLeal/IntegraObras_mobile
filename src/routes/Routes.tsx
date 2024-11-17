@@ -40,7 +40,7 @@ const Routes = () => {
             
             <Stack.Screen
                 name= "Home"
-                component={Register}
+                component={Home}
                 options={{headerShown: false}}
                 />
 

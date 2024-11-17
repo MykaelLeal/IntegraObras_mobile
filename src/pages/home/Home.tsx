@@ -1,10 +1,10 @@
 import React from "react";
-import { View, Text, TextInput, StyleSheet, Image,  FlatList, TouchableOpacity } from "react-native";
+import { View, Text, Image, ProgressBarAndroidBase, ScrollView } from "react-native";
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from '../../routes/Routes';
-import { ScrollView } from "react-native-reanimated/lib/typescript/Animated";
 import Icon from 'react-native-vector-icons/FontAwesome';
+
 
 import * as Animatable from 'react-native-animatable';
 import styles from "./HomeStyles";
@@ -16,74 +16,47 @@ type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'H
 const Home = () => {
     const navigation = useNavigation<HomeScreenNavigationProp>();
 
-    const data = [
-        { id: '1', text: ['Item 1'], imageUrl: 'https://via.placeholder.com/150' },
-        { id: '2', text: 'Item 2', imageUrl: 'https://via.placeholder.com/150' },
-        { id: '3', text: 'Item 3', imageUrl: 'https://via.placeholder.com/150' },
-      ]; 
-
-    const data2 = [
-        { id: '1', },
-        { id: '2', },
-        { id: '3', },
-      ]; 
-
     return (
 
         <View style={styles.homeContainer}>
+
+            <View style={styles.barContainer}>
+              <Icon style={{ paddingTop: 20}}name="bars" size={22} color="#FFF" />
+                <Animatable.View 
+                        animation='flipInY'
+                        style={styles.logo}
+                        >
+                        <Image
+                        style={styles.logoImage}
+                        source={require('../../assets/logo.png')}
+                        />
+                    </Animatable.View>
+                    <Text style={styles.textLogo}>IntegraObras</Text>
+            </View>
+
             
            <View style={styles.headerContainer}>
-                <Icon name="bars" size={20} color="#FFD43B" />
-                  <Animatable.View 
-                     animation='flipInY'
-                     style={styles.logo}
-                     >
-                     <Image
-                       style={styles.logoImage}
-                       source={require('../../assets/logo.png')}
-                      />
-                   </Animatable.View>
-                  <Text style={styles.textLogo}>IntegraObras</Text>
-
-            <View style={styles.nameContainer}>
-                <Text style={styles.textWelcome}>Bem-vindo(a)</Text>
-                <Text style={styles.textName}>Mykael Leal</Text>
+             <Text style={styles.textWelcome}>Bem-vindo(a)</Text>
+             <Text style={styles.textName}>Mykael Leal</Text>     
             </View>
+          
             
-            <ScrollView style={styles.body}>
+            <ScrollView style={styles.projectsContainer}>
+               <Text>Edificio Raiar do Sol</Text>
+               <Text>Unidade 123B</Text>
+               <Text>Rua Mariano Peixoto</Text>
+               <Text>Cidade: Campina Grande | PB</Text>
+               <Text>Andamento da obra</Text>
+
+               <Text>Início: 14/12/2024 - Previsão: 20/06/2025</Text>
                 
-                <View style={styles.projectsContainer}>
-                    <FlatList
-                        horizontal={true}
-                        data={data}
-                        keyExtractor={item => item.id}
-                        renderItem={({ item }) => (
-                        <View style={styles.card}>
-                          <Image source={{ uri: item.imageUrl }} style={styles.cardImage} />
-                          <Text style={styles.cardText}>{item.text[0]}</Text>
-                        </View>
-                            
-                        )}             
-                    />
-                </View>
 
-                <View style={styles.shortcut}>
-                    <FlatList
-                        horizontal={true}
-                        data={data2}
-                        keyExtractor={item => item.id}
-                        renderItem={({ item }) => (
-                        <View style={styles.card}>
-                            <Image source={{ uri: item.imageUrl }} style={styles.cardImage} />
-                        </View>
-                        )}
 
-                        />
-                </View>   
             </ScrollView>
-            </View>
+           
         </View>
 
 )};
 
 export default Home;
+

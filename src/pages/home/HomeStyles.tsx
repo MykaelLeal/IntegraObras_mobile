@@ -7,53 +7,111 @@ const styles = StyleSheet.create ({
         backgroundColor: '#fff',
 
     },
+    barContainer: {
+        flexDirection: 'row', 
+        width: '100%',
+        alignItems: 'center', 
+        justifyContent: 'flex-start', 
+        paddingHorizontal: 20,
+        paddingVertical: 10, 
+        height: '12%',
+        backgroundColor: 'orange'
+
+
+
+
+    },
     headerContainer: {
-        flex: 1,
+        width: '100%',
+        flex: 0.3,
+        justifyContent: 'flex-start', 
+        paddingHorizontal: 5, 
         backgroundColor: '#fff',
+        paddingTop: 30
+       
+       
 
     },
     logo: {
-        width: '100%', 
-        justifyContent: 'center', 
-        alignItems: 'center',
-        paddingTop: 30
+        width: 60, 
+        height: 70,
+        marginLeft: 65,
+        paddingTop: 20
+       
+       
+        
 
     },
     logoImage: {
-        width: '25%',
-        height: '25%',
+        width: '100%',
+        height: '100%',
+        resizeMode: 'contain',
+        
 
     },
     textLogo: {
-        fontSize: 15,
-        color: 'orange',
+        fontSize: 18,
+        color: '#FFF', 
+        fontWeight: 'bold',
+        flexDirection: 'row', 
+        paddingTop: 20,
+        marginLeft: -10,
+       
+       
        
     },
     nameContainer: {
         width: '100%',
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+       
 
     },
     textWelcome: {
         fontSize: 20,
         color: 'orange',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        paddingLeft: 30,
+        paddingTop: -10
+        
 
 
     },
     textName: {
-        fontSize: 15,
+        fontSize: 18,
         color: 'orange',
+        paddingLeft: 30
+
 
     },
-    body: {
-        width: '100%'
-        
-    },
     projectsContainer: {
-        width: '100%'
-    
+            width: '80%',
+            height: 30, 
+            backgroundColor: 'lightblue', 
+            borderRadius: 10,
+            borderWidth: 0.5, // Largura da borda
+            marginHorizontal: 40
+
+
     },
+    card: {
+        width: '100%',
+        backgroundColor: 'orange',
+         
+
+    },
+    cardImage: {
+
+    },
+    cardText: {
+
+    },
+    shortcut: {
+
+    },
+    imageUrl: {
+
+    },
+
     
 
 

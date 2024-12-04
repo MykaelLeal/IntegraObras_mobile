@@ -15,7 +15,7 @@ const styles = StyleSheet.create ({
         paddingHorizontal: 20,
         paddingVertical: 10, 
         height: '12%',
-        backgroundColor: 'orange'
+        backgroundColor: '#eb7228'
 
 
 
@@ -84,34 +84,65 @@ const styles = StyleSheet.create ({
 
     },
     projectsContainer: {
-            width: '80%',
-            height: 30, 
-            backgroundColor: 'lightblue', 
-            borderRadius: 10,
-            borderWidth: 0.5, // Largura da borda
-            marginHorizontal: 40
+            flex: 1,
+            width: '90%',
+            backgroundColor: '#ff6f19',
+            borderRadius: 18,
+            marginLeft: 20,
+            marginRight: 20,
+            padding: 20
 
 
     },
-    card: {
-        width: '100%',
-        backgroundColor: 'orange',
+    title: {
+        color: '#fff',
+        fontSize: 22,
+        fontWeight: 'bold',
+        paddingBottom: 5
          
 
     },
-    cardImage: {
+    subTitle: {
+        fontSize: 18,
+        color: '#fff',
+        paddingBottom: 5
+
 
     },
-    cardText: {
+    textprogress: {
+        fontSize: 13,
+        color: '#fff',
+        paddingBottom: 8,
+
 
     },
-    shortcut: {
+    textdata: {
+        color: '#fff',
+        fontSize: 13,
+        paddingTop: 15
+
 
     },
-    imageUrl: {
+    text: {
+        color: '#fff',
+        fontSize: 13,
+        paddingBottom: 8
 
     },
+    content: {
+        flex: 1,
+        width: '100%'
 
+    },
+    container: {
+        flexDirection: 'row', 
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        padding: 20,
+      },
+      iconContainer: {
+        alignItems: 'center', 
+      },
     
 
 

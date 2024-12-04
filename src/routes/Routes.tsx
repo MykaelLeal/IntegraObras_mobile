@@ -1,16 +1,22 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Welcome from '../pages/welcome/Welcome';
+import Welcome from "../pages/welcome/Welcome";
 import Login from "../pages/login/Login";
-import Register from '../pages/register/Register';
-import Home from '../pages/home/Home';
+import Register from "../pages/register/Register";
+import Dashboard from "../pages/dashboard/Dashboard";
+import Work from "../pages/work/Work";
+import ViewWorks from "../pages/viewWorks/ViewWorks";
+import Profile from "../pages/profile/Profile";
 
 export type RootStackParamList = {
     Welcome: undefined;
     Login: undefined;
     Register: undefined;
-    Home: undefined;
+    Dashboard: undefined;
+    Work: undefined;
+    ViewWorks: undefined
+    Profile: undefined
   
 };
 
@@ -39,8 +45,26 @@ const Routes = () => {
                 />
             
             <Stack.Screen
-                name= "Home"
-                component={Home}
+                name= "Dashboard"
+                component={Dashboard}
+                options={{headerShown: false}}
+                />
+            
+            <Stack.Screen
+                name= "Work"
+                component={Work}
+                options={{headerShown: false}}
+                />
+
+            <Stack.Screen
+                name= "ViewWorks"
+                component={ViewWorks}
+                options={{headerShown: false}}
+                />
+
+            <Stack.Screen
+                name= "Profile"
+                component={Profile}
                 options={{headerShown: false}}
                 />
 

@@ -12,32 +12,6 @@ type LoginScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, '
 const Login = () => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
 
-  // States to manage form input
-  const [email, setEmail] = useState('');
-  const [cnpj, setCnpj] = useState('');
-  const [senha, setSenha] = useState('');
-
-  // Validate email and password function
-  const validateLogin = async () => {
-    try {
-      const storedData = await AsyncStorage.getItem('userData');
-      if (storedData) {
-        const userData = JSON.parse(storedData);
-
-        if (userData.email === email && userData.cnpj === cnpj && userData.senha === senha) {
-          // Successfully logged in
-          navigation.navigate('Work'); // Replace 'Work' with your next screen
-        } else {
-          Alert.alert("Erro", "Credenciais inválidas.");
-        }
-      } else {
-        Alert.alert("Erro", "Nenhum dado encontrado. Faça o cadastro.");
-      }
-    } catch (error) {
-      Alert.alert("Erro", "Erro ao verificar dados de login.");
-    }
-  };
-
   return (
     <View style={styles.container}>
       <View style={styles.containerLogo}>
@@ -51,27 +25,24 @@ const Login = () => {
         <TextInput
           placeholder="Email"
           style={styles.input}
-          value={email}
-          onChangeText={(text) => setEmail(text)}
+          
         />
 
         <TextInput
           placeholder="CNPJ da Empresa"
           style={styles.input}
-          value={cnpj}
-          onChangeText={(text) => setCnpj(text)}
           keyboardType="numeric"
         />
 
         <TextInput
           placeholder="Senha"
           style={styles.input}
-          value={senha}
-          onChangeText={(text) => setSenha(text)}
           secureTextEntry
         />
 
-        <TouchableOpacity style={styles.button} onPress={validateLogin}>
+        <TouchableOpacity 
+         style={styles.button}
+          onPress={() => navigation.navigate('ViewWorks')}>
           <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>
 

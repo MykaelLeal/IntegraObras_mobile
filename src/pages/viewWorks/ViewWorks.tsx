@@ -1,83 +1,69 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, TouchableOpacity, ScrollView, StyleSheet, TextInput } from "react-native";
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { useNavigation } from "@react-navigation/native";
-import { RootStackParamList } from "../../routes/Routes";
+import React, { useState, useEffect } from 'react';
+import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../routes/Routes';
 
 import styles from './ViewWorksStyles';
 
-type ViewWorkScreenStackNavigationProp = NativeStackNavigationProp<RootStackParamList, 'ViewWorks'>;
+type ViewWorkScreenStackNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Work'>;
 
 const ViewWorks = () => {
   const navigation = useNavigation<ViewWorkScreenStackNavigationProp>();
-  const [works, setWorks] = useState<any[]>([]); // Para armazenar as obras
+  const [workData, setWorkData] = useState<any>(null); // Estado para armazenar os dados da obra
 
-  // Função para carregar as obras do AsyncStorage
-  const loadWorks = async () => {
+  // Função para carregar os dados do AsyncStorage
+  const loadWorkData = async () => {
     try {
-      const storedWorks = await AsyncStorage.getItem('works');
-      if (storedWorks) {
-        setWorks(JSON.parse(storedWorks)); // Converte de volta para o formato de array
+      const storedWorkData = await AsyncStorage.getItem('workData');
+      console.log('Dados carregados do AsyncStorage:', storedWorkData); // Adicionando log
+      if (storedWorkData) {
+        setWorkData(JSON.parse(storedWorkData)); // Converte os dados do AsyncStorage para o formato original
+      } else {
+        console.log('Nenhum dado encontrado no AsyncStorage.');
       }
     } catch (error) {
-      console.error('Erro ao carregar as obras', error);
+      console.error('Erro ao carregar os dados da obra', error);
     }
   };
 
-  // Função para adicionar uma nova obra no AsyncStorage
-  const addWork = async (newWork: any) => {
-    try {
-      const updatedWorks = [...works, newWork];
-      await AsyncStorage.setItem('works', JSON.stringify(updatedWorks)); // Salva o array atualizado no AsyncStorage
-      setWorks(updatedWorks); // Atualiza o estado com as obras recém-adicionadas
-    } catch (error) {
-      console.error('Erro ao adicionar a obra', error);
-    }
-  };
-
-  // UseEffect para carregar as obras ao montar o componente
+  // useEffect para carregar os dados ao montar o componente
   useEffect(() => {
-    loadWorks();
+    loadWorkData();
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>IntegraObras</Text>
-      <ScrollView style={styles.worksContainer}>
-        {/* Renderizando os cards das obras */}
-        {works.map((work) => (
-          <TouchableOpacity
-            key={work.id}
-            style={styles.card}
-            onPress={() => navigation.navigate('Dashboard', { workId: work.id })} // Navegação com id da obra
-          >
-            <Text style={styles.cardTitle}>{work.name}</Text>
-            <Text style={styles.cardText}>Status: {work.status}</Text>
-            <Text style={styles.cardText}>Localização: {work.location}</Text>
-          </TouchableOpacity>
-        ))}
+    <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerText}>IntegraObras</Text>
+      </View>
 
-        {/* Botão de Adicionar Obra */}
+      {workData ? (
         <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            // Aqui você pode abrir um modal ou outra tela para adicionar a obra
-            const newWork = { 
-              id: Date.now(), // Usando timestamp como id único
-              name: "Nova Obra", 
-              status: "Em andamento", 
-              location: "Localização nova"
-            };
-            addWork(newWork); // Adiciona a obra ao AsyncStorage e ao estado
-          }}
+          style={styles.card}
+          onPress={() => navigation.navigate('Task')} // Navega para a tela de Dashboard
         >
-          <Text style={styles.buttonText}>+ Adicionar Obra</Text>
+          <Text style={styles.cardTitle}>{workData.nome}</Text>
+          <Text style={styles.cardText}>Endereço: {workData.endereco}</Text>
+          <Text style={styles.cardText}>Status: {workData.status}</Text>
         </TouchableOpacity>
-      </ScrollView>
-    </View>
+      ) : (
+        <Text style={styles.noDataText}>Não há dados de obra disponíveis.</Text>
+      )}
+
+      {/* Navegar para a tela de Work para editar ou adicionar nova obra */}
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Work')}
+      >
+        <Text style={styles.buttonText}>+ Adicionar obra</Text>
+      </TouchableOpacity>
+    </ScrollView>
   );
 };
 
 export default ViewWorks;
 
+
+ 

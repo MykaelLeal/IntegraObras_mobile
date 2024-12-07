@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',
       marginBottom: 20,
     },
-    statusInput: {
+    picker: {
       height: 50,
       borderWidth: 1,
       borderColor: '#ccc',
@@ -113,15 +113,7 @@ const styles = StyleSheet.create({
       fontSize: 14,
 
     },
-    selectedImage: {
-      width: 150, // Largura da imagem
-      height: 150, // Altura da imagem
-      borderRadius: 15, // Bordas arredondadas para um visual mais suave
-      borderWidth: 2, // Borda para a imagem
-      borderColor: '#ddd', // Cor da borda (cinza claro)
-      marginTop: 10, // Margem superior para separar a imagem de outros elementos
-    },
-
+    
   });
 
   export default styles;

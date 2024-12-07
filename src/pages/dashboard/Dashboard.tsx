@@ -15,12 +15,11 @@ type DashboardScreenStackNavigationProp = NativeStackNavigationProp<RootStackPar
 
 
 const Dashboard = () => {
-    const stackNavigation = useNavigation<DashboardScreenStackNavigationProp>();
-    const navigation = useNavigation()
+    const navigation = useNavigation<DashboardScreenStackNavigationProp>();
 
       return (
 
-          <View style={styles.homeContainer}>
+          <ScrollView style={styles.homeContainer}>
 
               <View style={styles.barContainer}>
                 <Icon style={{ paddingTop: 20}}name="bars" size={22} color="#FFF" />
@@ -41,7 +40,7 @@ const Dashboard = () => {
               <Text style={styles.textName}>Mykael Leal</Text>     
             </View>
             
-              <ScrollView style={styles.projectsContainer}>
+              <View style={styles.projectsContainer}>
                 <Text style={styles.title}>Edificio Raiar do Sol</Text>
                 <Text style={styles.subTitle}>Unidade 123B</Text>
                 <Text style={styles.text}>Rua Mariano Peixoto</Text>
@@ -49,42 +48,29 @@ const Dashboard = () => {
                 <Text style={styles.textprogress}>Andamento da obra 50%</Text>
                 <Progress.Bar progress={0.5} width={280} height={10}  borderRadius={5} color="#fff" />
                 <Text style={styles.textdata}>Início: 14/12/2024 - Previsão: 20/06/2025</Text>
-              </ScrollView>
-
-              <View style={styles.content}>
-                <Icon style={{ paddingTop: 20}}name="bars" size={28} color="#000" />
               </View>
 
               <View style={styles.container}>
                   <TouchableOpacity
                     style={styles.iconContainer}
-                    //onPress={() => navigation.navigate('Tela1')} 
+                    onPress={() => navigation.navigate('Task')} 
                   >
-                    <Icon name="briefcase" size={40} color="#000" />
-                    <Text>Home</Text>
-                  </TouchableOpacity>
-
-                  <TouchableOpacity
-                    style={styles.iconContainer}
-                    //onPress={() => navigation.navigate('Tela2')} 
-                  >
-                    <Icon name="fa-duotone fa-solid fa-list-dropdown" size={40} color="#000" />
-                    <Text>Configurações</Text>
+                    <Icon name="check-square" size={80} color="#eb7228" />
+                    <Text>Tarefas</Text>
                   </TouchableOpacity>
 
                   <TouchableOpacity
                     style={styles.iconContainer}
                     //onPress={() => navigation.navigate('Tela3')}
                   >
-                    <Icon name="file-alt" size={40} color="#000" />
+                    <Icon name="file-alt" size={80} color='#eb7228' />
                     <Text>Info</Text>
                   </TouchableOpacity>
                 </View>
             
               
-          </View>
+          </ScrollView>
 
   )};
 
 export default Dashboard;
-

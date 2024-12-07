@@ -42,7 +42,7 @@ const ViewWorks = () => {
       {workData ? (
         <TouchableOpacity
           style={styles.card}
-          onPress={() => navigation.navigate('Task')} // Navega para a tela de Dashboard
+          onPress={() => navigation.navigate('Dashboard')} // Navega para a tela de Dashboard
         >
           <Text style={styles.cardTitle}>{workData.nome}</Text>
           <Text style={styles.cardText}>Endereço: {workData.endereco}</Text>

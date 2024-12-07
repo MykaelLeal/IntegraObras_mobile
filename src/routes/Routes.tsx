@@ -8,6 +8,7 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import Work from "../pages/work/Work";
 import ViewWorks from "../pages/viewWorks/ViewWorks";
 import Task from "../pages/task/Task";
+import Report from "../pages/report/Report";
 
 export type RootStackParamList = {
     Welcome: undefined;
@@ -18,6 +19,7 @@ export type RootStackParamList = {
     ViewWorks: undefined
     Profile: undefined
     Task: undefined
+    Report: undefined
   
 };
 
@@ -66,6 +68,12 @@ const Routes = () => {
             <Stack.Screen
                 name= "Task"
                 component={Task}
+                options={{headerShown: false}}
+                />
+            
+            <Stack.Screen
+                name= "Report"
+                component={Report}
                 options={{headerShown: false}}
                 />
 

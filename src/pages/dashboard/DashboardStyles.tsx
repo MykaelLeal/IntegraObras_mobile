@@ -15,7 +15,8 @@ const styles = StyleSheet.create ({
         paddingHorizontal: 20,
         paddingVertical: 10, 
         height: '12%',
-        backgroundColor: '#eb7228'
+        backgroundColor: '#fff',
+        flex: 0.2
 
 
 
@@ -23,11 +24,12 @@ const styles = StyleSheet.create ({
     },
     headerContainer: {
         width: '100%',
-        flex: 0.3,
+        flex: 0.2,
         justifyContent: 'flex-start', 
         paddingHorizontal: 5, 
         backgroundColor: '#fff',
-        paddingTop: 30
+        paddingTop: 30,
+        marginBottom: 40
        
        
 
@@ -46,12 +48,13 @@ const styles = StyleSheet.create ({
         width: '100%',
         height: '100%',
         resizeMode: 'contain',
+       
         
 
     },
     textLogo: {
-        fontSize: 18,
-        color: '#FFF', 
+        fontSize: 22,
+        color: '#eb7228', 
         fontWeight: 'bold',
         flexDirection: 'row', 
         paddingTop: 20,
@@ -84,13 +87,14 @@ const styles = StyleSheet.create ({
 
     },
     projectsContainer: {
-            flex: 1,
             width: '90%',
             backgroundColor: '#ff6f19',
             borderRadius: 18,
             marginLeft: 20,
             marginRight: 20,
-            padding: 20
+            padding: 20,
+            flex: 0.4,
+            marginBottom: 10
 
 
     },
@@ -139,25 +143,22 @@ const styles = StyleSheet.create ({
         justifyContent: 'space-around',
         alignItems: 'center',
         padding: 20,
+        width: '100%'
       },
+      
       iconContainer: {
-        alignItems: 'center', 
+        alignItems: 'center',
+        marginHorizontal: 20, // Espaçamento entre os ícones
+        paddingVertical: 10,
+        backgroundColor: '#f9f9f9', // Cor de fundo suave
+        borderRadius: 5, // Bordas arredondadas
+        padding: 40, // Adiciona espaçamento interno
       },
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-})
+      icon: {
+        marginBottom: 10, // Espaço entre o ícone e o texto
+      },
+      
+    });
 
 
 

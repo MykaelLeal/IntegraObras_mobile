@@ -6,19 +6,24 @@ import { RootStackParamList } from '../../routes/Routes';
 import * as Animatable from 'react-native-animatable';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './RegisterStyles';
-import { TextInputMask } from 'react-native-masked-text';
-
 
 type RegisterScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Register'>;
 
-const Register = () => {
+const Register: React.FC = () => {
   const navigation = useNavigation<RegisterScreenNavigationProp>();
 
-  const [nome, setNome] = useState('');
-  const [razaoSocial, setRazaoSocial] = useState('');
-  const [cnpj, setCnpj] = useState('');
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
+  const [nome, setNome] = useState<string>('');
+  const [razaoSocial, setRazaoSocial] = useState<string>('');
+  const [cnpj, setCnpj] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [senha, setSenha] = useState<string>('');
+
+  const formatCNPJ = (value: string): string => {
+    return value
+      .replace(/\D/g, '') 
+      .replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5')
+      .slice(0, 18); 
+  };
 
   const validateRegister = () => {
     if (!nome || !razaoSocial || !cnpj || !email || !senha) {
@@ -32,14 +37,7 @@ const Register = () => {
       return;
     }
 
-   
-    const cnpjClean = cnpj.replace(/\D/g, '');
-    if (cnpjClean.length !== 14 || isNaN(Number(cnpjClean))) {
-      Alert.alert('Erro', 'CNPJ inválido');
-      return;
-    }
-
-    if (senha.length < 8) {
+    if (senha.length < 6) {
       Alert.alert('Erro', 'A senha deve ter pelo menos 6 caracteres');
       return;
     }
@@ -78,15 +76,13 @@ const Register = () => {
           onChangeText={setRazaoSocial}
         />
 
-      <TextInputMask
-        type={'cnpj'} 
-        placeholder="CNPJ"
-        style={styles.input}
-        value={cnpj}
-        onChangeText={setCnpj}
-        keyboardType="numeric"
-      />
-
+        <TextInput
+          style={styles.input}
+          value={cnpj}
+          onChangeText={(text) => setCnpj(formatCNPJ(text))}
+          keyboardType="default"
+          placeholder="00.000.000/0000-00"
+        />
 
         <TextInput
           placeholder="Email"

@@ -5,31 +5,31 @@ import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { RootStackParamList } from "../../routes/Routes";
 import { Picker } from "@react-native-picker/picker";
-import styles from './TaskStyles';
+import styles from './ReportStyles';
 
-type CreateTaskScreenStackNavigationProp = NativeStackNavigationProp<RootStackParamList, 'CreateTask'>;
+type CreateReportScreenStackNavigationProp = NativeStackNavigationProp<RootStackParamList, 'CreateReport'>;
 
-type FormData = {
+type ReportData = {
   titulo: string;
   descricao: string;
   dataCriacao: string;
-  responsavel: string;
+  autor: string;
   status: string;
   prioridade: string;
-  notas: string;
+  resumo: string;
 };
 
-const CreateTask = () => {
-  const navigation = useNavigation<CreateTaskScreenStackNavigationProp>();
+const CreateReport = () => {
+  const navigation = useNavigation<CreateReportScreenStackNavigationProp>();
   
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<ReportData>({
     titulo: '',
     descricao: '',
     dataCriacao: '',
-    responsavel: '',
+    autor: '',
     status: '',
     prioridade: '',
-    notas: '',
+    resumo: '',
   });
 
   const formatData = (data: string): string => {
@@ -40,24 +40,24 @@ const CreateTask = () => {
     return formatada.substring(0, 10);
   };
 
-  const handleInputChange = (field: keyof FormData, value: string) => {
+  const handleInputChange = (field: keyof ReportData, value: string) => {
     setFormData({ ...formData, [field]: value });
   };
 
   const handleSubmit = async () => {
     try {
-      await AsyncStorage.setItem('taskData', JSON.stringify(formData));
-      navigation.navigate('ViewTask');
-      console.log('Tarefa salva com sucesso!');
+      await AsyncStorage.setItem('reportData', JSON.stringify(formData));
+      navigation.navigate('ViewReport');
+      console.log('Relatório salvo com sucesso!');
     } catch (error) {
-      console.error('Erro ao salvar a tarefa:', error);
+      console.error('Erro ao salvar o relatório:', error);
     }
   };
 
   return (
     <ScrollView style={styles.container}>
       <View style={styles.headerContainer}>
-        <Text style={styles.title}>Adicionar Tarefa</Text>
+        <Text style={styles.title}>Adicionar Relatório</Text>
       </View>
 
       <View style={styles.formContainer}>
@@ -85,11 +85,11 @@ const CreateTask = () => {
           onChangeText={(text) => handleInputChange('dataCriacao', formatData(text))}
         />
 
-        <Text style={styles.label}>Responsável</Text>
+        <Text style={styles.label}>Autor</Text>
         <TextInput
           style={styles.input}
-          value={formData.responsavel}
-          onChangeText={(text) => handleInputChange('responsavel', text)}
+          value={formData.autor}
+          onChangeText={(text) => handleInputChange('autor', text)}
         />
 
         <Text style={styles.label}>Status</Text>
@@ -114,12 +114,12 @@ const CreateTask = () => {
           <Picker.Item label="Baixa" value="Baixa" />
         </Picker>
 
-        <Text style={styles.label}>Notas</Text>
+        <Text style={styles.label}>Resumo</Text>
         <TextInput
           style={styles.input}
-          value={formData.notas}
-          onChangeText={(text) => handleInputChange('notas', text)}
-          placeholder="Adicionar notas"
+          value={formData.resumo}
+          onChangeText={(text) => handleInputChange('resumo', text)}
+          placeholder="Adicionar resumo"
           multiline
         />
 
@@ -127,11 +127,11 @@ const CreateTask = () => {
           style={styles.buttonSubmit}
           onPress={handleSubmit}
         >
-          <Text style={styles.createText}>Salvar Tarefa</Text>
+          <Text style={styles.createText}>Salvar Relatório</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
   );
 };
 
-export default CreateTask;
+export default CreateReport;

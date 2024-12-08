@@ -7,8 +7,10 @@ import Register from "../pages/register/Register";
 import Dashboard from "../pages/dashboard/Dashboard";
 import Work from "../pages/work/Work";
 import ViewWorks from "../pages/viewWorks/ViewWorks";
-import Task from "../pages/task/Task";
-import Report from "../pages/report/Report";
+import CreateTask from "../pages/task/Task";
+import ViewTask from "../pages/task/ViewTask";
+import CreateReport from "../pages/report/CreateReport";
+import ViewReport from "../pages/report/ViewReports";
 
 export type RootStackParamList = {
     Welcome: undefined;
@@ -18,8 +20,10 @@ export type RootStackParamList = {
     Work: undefined;
     ViewWorks: undefined
     Profile: undefined
-    Task: undefined
-    Report: undefined
+    CreateTask: undefined
+    ViewTask: undefined
+    CreateReport: undefined
+    ViewReport: undefined
   
 };
 
@@ -66,14 +70,26 @@ const Routes = () => {
                 />
 
             <Stack.Screen
-                name= "Task"
-                component={Task}
+                name= "CreateTask"
+                component={CreateTask}
+                options={{headerShown: false}}
+                />
+
+            <Stack.Screen
+                name= "ViewTask"
+                component={ViewTask}
                 options={{headerShown: false}}
                 />
             
             <Stack.Screen
-                name= "Report"
-                component={Report}
+                name= "CreateReport"
+                component={CreateReport}
+                options={{headerShown: false}}
+                />
+
+            <Stack.Screen
+                name= "ViewReport"
+                component={ViewReport}
                 options={{headerShown: false}}
                 />
 

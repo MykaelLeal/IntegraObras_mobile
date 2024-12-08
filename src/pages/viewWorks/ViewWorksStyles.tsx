@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#f0F0F0',
   },
   headerContainer: {
     alignItems: 'center',
@@ -13,13 +13,13 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#eb7228',
+    color: '#F3AE24',
     textAlign: 'center',
     paddingTop: 40
 
   },
   card: {
-    backgroundColor: '#eb7228',
+    backgroundColor: '#F3AE24',
     borderRadius: 10,
     padding: 20,
     marginBottom: 20,
